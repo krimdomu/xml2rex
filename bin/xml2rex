@@ -1,0 +1,17 @@
+#!/usr/bin/env perl -w
+
+#
+# (c) Jan Gehring <jan.gehring@gmail.com>
+# 
+# vim: set ts=3 sw=3 tw=0:
+# vim: set expandtab:
+   
+use strict;
+use warnings;
+
+use Rex::Converter;
+
+my $converter = Rex::Converter->create("XML2Rex");
+
+$converter->convert($ARGV[0], $ARGV[1]);
+

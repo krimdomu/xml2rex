@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<?rex version="0"?>
+<rex>
+   <auth type="password">
+      <user>root</user>
+      <password>test</password>
+   </auth>
+   <group name="foo">
+      <server name="web01" />
+      <server name="web02" />
+      <server name="web03" />
+   </group>
+   <group name="bar">
+      <server name="db01" />
+      <server name="db02" />
+   </group>
+   <task name="prepare" group="foo">
+
+      <install type="package">
+         <package name="apache2" />
+         <package name="foosoft" version="1.0" />
+      </install>
+
+      <file 
+         destination="/etc/foo.conf"
+         source="files/foo.conf"
+         owner="root"
+         group="root"
+         mode="600" />
+
+      <service name="apache2" action="restart" />
+
+      <run command="ls -l" />
+
+   </task>
+
+   <task name="ship">
+
+      <mkdir 
+         path="/foo/bar"
+         owner="root"
+         group="root"
+         mode="755" />
+
+      <mkdir 
+         path="/foo/baz" />
+
+
+      <run command="ls -l" />
+
+   </task>
+
+</rex>

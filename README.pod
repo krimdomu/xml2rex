@@ -1,0 +1,12 @@
+=head1 xml2rex - Convert XML to Rex Code
+
+This is a tool to convert an xml document to Rex Code.
+
+This is work in progress.
+
+You can see an example in doc/example.xml.
+
+=head1 USAGE
+
+bin/xml2rex <xml> <Rexfile>
+
